@@ -15,7 +15,7 @@ def index():
             professions.append({'name': row[0], 'selected': row[1] == 'True'})
     return render_template('index.html', professions=professions)
 
-@app.route('/update', methods=['POST'])
+@app.route('/save', methods=['POST'])
 def update():
     selected = request.form.getlist('selected')
     updated_rows = []
