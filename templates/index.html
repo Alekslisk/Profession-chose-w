@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профессии</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Выберите профессии</h1>
+        <form action="/save" method="POST">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Профессия</th>
+                        <th>Выбрать</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for profession in professions %}
+                    <tr>
+                        <td>{{ profession.name }}</td>
+                        <td>
+                            <input type="checkbox" name="selected" value="{{ profession.name }}"
+                            {% if profession.selected %}checked{% endif %}>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit">Сохранить и скачать</button>
+        </form>
+    </div>
+</body>
+</html>
